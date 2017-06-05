@@ -1,0 +1,15 @@
+#! /bin/bash
+# Takes a name as input, then offers a neighborly hello!
+
+neighbor=$1
+
+while [ -z $neighbor ]
+do
+echo "Enter an actual name bro?!"
+read neighbor
+done
+
+echo "Hey there, $neighbor!"
+
+  
+

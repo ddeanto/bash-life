@@ -1,0 +1,47 @@
+#! /bin/bash
+# Takes two numbers as input, compares them, and prints the larger one.
+
+function syntax {
+local x
+while ! [[ $1 =~ ^-?[0-9]+$ ]]
+    do
+        echo "Um1, I said to enter a _number_. Get with it or get out."
+	read x
+do
+ne
+echo $x
+}
+
+function f {
+echo $1 is awesome
+}
+ 
+num1=$1
+num2=$2
+syntax $num1
+syntax $num2
+
+if [[ "$num1" -gt "$num2" ]]
+then
+	echo $num1 is bigger than $num2
+elif [[ "$num1" -eq "$num2" ]]
+then
+	echo "That is literally the same number twice."
+else
+	echo $num2 is bigger than $num1
+fi
+
+nk1
+
+N=9999
+winner="."
+for i in $( find -type d -name 'JBoss' ); do
+  cutEnd=${i//\/JBoss/}
+  echo ${cutEnd}
+  if [[ ${#i} -lt $N ]]; then 
+    winner=$i
+    N=${#i}
+  fi
+done
+cd ${winner}
+
