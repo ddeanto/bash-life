@@ -1,6 +1,4 @@
 # proof of concept using working directory as input
-#
-# note: concept not yet proved, but it's a start
 
 cnvrtDirection=$1
 
@@ -17,13 +15,14 @@ done
 if [ $cnvrtDirection="1" ]
 then
 	# this converts camelCase to underscore_case
-	#underscore_case=$(echo $1 | sed -r 's/([a-z])([A-Z])/\1_\L\2/g')
+	# mv cannot have its target end in `.` so must use $PW
 	underscore_case=$(pwd | sed -r 's/([a-z])([A-Z])/\1_\L\2/g')
-	mv . "$underscore_case"
+	mv $PWD "$underscore_case"
 else
 	# this converts underscore_case to camelCase
+	# mv cannot have its target end in `.` so must use $PWD 	
 	camelCase=$(pwd | sed -r 's/(_)([a-z])/\U\2/g')
-	mv . "$camelCase"
+	mv $PWD "$camelCase"
 fi
 
 pwd
